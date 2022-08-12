@@ -1,0 +1,52 @@
+.header {
+    background-color: #1D2226;
+    border-bottom: 1px solid hsla(0,0%,100%,0.12);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header_left {
+    display: flex;
+}
+
+/* .header_left > img {
+    height: 40px;
+    margin-right: 10px;
+    object-fit: contain;
+} */
+
+.linkedin_icon {
+    color: white;
+    margin-right: 10px;
+}
+
+.header_search {
+    align-items: center;
+    background-color: #38434F;
+    /* background-color: #EEF3F8; for light mode*/
+    border-radius: 5px;
+    /* color: gray; for light mode*/
+    color: #FFFFFF;
+    display: flex;
+    height: 22px;
+    padding: 10px;
+}
+
+.header_search > input {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+input[type="text"] {
+    color: white;
+}
+
+.header_right {
+    display: flex;
+}

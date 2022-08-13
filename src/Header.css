@@ -50,3 +50,86 @@ input[type="text"] {
 .header_right {
     display: flex;
 }
+
+.profile {
+    background-color: #1D2226;
+    border: 1.5px solid hsla(0,0%,100%,0.12);
+    border-radius: 10px;
+    padding: 24px;
+    position: absolute;
+    right: 17%;
+    top: 80px;
+}
+
+.profile_header {
+    display: flex;
+    align-items: center;
+}
+
+.profile_headerAvatar {
+    height: 60px !important;
+    margin-right: 10px;
+    object-fit: contain;
+    width: 60px !important;
+}
+
+.profile h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profile_info > p {
+    font-size: 14px;
+}
+
+.profile > button {
+    background-color: transparent;
+    border: 1px solid #70B5F9;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: #70B5F9;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px auto;
+    padding: 5px 85px;
+}
+
+.profile > button:hover {
+    background-color: rgba(138, 216, 255, 0.3);
+    border: 2px solid #70B5F9;
+    padding: 4px 84px;
+}
+
+.accounts, .manage {
+    line-height: 2rem;
+}
+
+.manage {
+    border: 1px solid hsla(0,0%,100%,0.12);
+}
+
+.accounts > p, .manage > p {
+    cursor: pointer;
+    color: #FFFFFF99;
+    font-size: 16px;
+}
+
+.accounts > p:hover, .manage > p:hover {
+    text-decoration: underline;
+}
+
+.manage {
+    border: 1px solid hsla(0,0%,100%,0.12);
+    border-left: none;
+    border-right: none;
+    margin: 10px 0;
+}
+
+.profile > span {
+    cursor: pointer;
+    color: #FFFFFF99;
+}
+
+.profile > span:hover {
+    text-decoration: underline;
+}

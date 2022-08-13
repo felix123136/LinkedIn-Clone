@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -8,27 +8,24 @@ import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import TextsmsIcon from "@mui/icons-material/Textsms";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import LogoutIcon from '@mui/icons-material/Logout';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
-import { logout } from "./features/userSlice";
+import { logout, selectUser } from "./features/userSlice";
+import { Avatar } from "@mui/material";
 
 
 function Header() {
+  const [openProfile, setOpenProfile] = useState(false);
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
   const logoutOfApp = () => {
     dispatch(logout());
     signOut(auth);
   };
   return (
-
     <div className="header">
       <div className="header_left">
-        {/* <img
-          src="https://images-ext-1.discordapp.net/external/VpHgTGYZWuVMTVdawsC4QI20eRA1bTj97zOIpiUxJhg/%3Ftoken%3Dexp%3D1660131615~hmac%3Dd2c374c54f7fc13d9554bfb02b27aa8f/https/cdn-icons.flaticon.com/png/512/3536/premium/3536505.png"
-          alt=""
-        /> for light mode*/}
         <LinkedInIcon sx={{ fontSize: 40 }} className="linkedin_icon" />
         <div className="header_search">
           <SearchIcon />
@@ -44,10 +41,36 @@ function Header() {
         <HeaderOption Icon={NotificationsIcon} title="Notifications" />
         <HeaderOption
           avatar={true}
+          onClick={() => setOpenProfile(!openProfile)}
           title="Me"
         />
-        <HeaderOption onClick={logoutOfApp} Icon={LogoutIcon} title="Log out" />
       </div>
+      {
+        openProfile && (
+          <div className="profile">
+            <div className="profile_header">
+              <Avatar className="profile_headerAvatar" src={user.photoURL}>{user.displayName[0]}</Avatar>
+              <div className="profile_info">
+                  <h2>{user.displayName}</h2>
+                  <p>{user.email}</p>
+              </div>
+            </div>
+            <button>View Profile</button>
+            <div className="accounts">
+              <h2>Accounts</h2>
+              <p>Settings & Privacy</p>
+              <p>Help</p>
+              <p>Language</p>
+            </div>
+            <div className="manage">
+              <h2>Manage</h2>
+              <p>Post & Activity</p>
+              <p>Job Posting Account</p>
+            </div>
+            <span onClick={logoutOfApp}>Sign Out</span>
+          </div>
+        )
+      }
     </div>
   );
 }

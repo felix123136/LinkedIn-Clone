@@ -37,22 +37,18 @@ function Feed() {
     })
   }, [posts]);
 
-  const sendPost = async (e) => {
+  const sendPost = (e) => {
     e.preventDefault();
-    try {
-      const docRef = await addDoc(collection(db, "posts"), {
+    addDoc(collection(db, "posts"), {
         name: user.displayName,
         description: user.email,
         message: input,
         photoURL: user.photoURL || '',
         timestamp: serverTimestamp(),
       });
-      console.log("Document written with ID: ", docRef.id);
       setInput("");
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
   };
+  
   return (
     <div className="feed">
       <div className="feed_inputContainer">

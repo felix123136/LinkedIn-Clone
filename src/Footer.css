@@ -1,0 +1,28 @@
+.footer {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    width: 100%;
+}
+
+.footer > img {
+    height: 15px;
+    object-fit: contain;
+}
+
+.footer > p {
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 0 10px;
+}
+.footer > p:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 780px) {
+    .footer {
+        display: none;
+    }
+}

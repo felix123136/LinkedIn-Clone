@@ -20,43 +20,48 @@ import {
 } from "firebase/firestore";
 import { selectUser } from "./features/userSlice";
 import { useSelector } from "react-redux";
-import FlipMove from 'react-flip-move';
+import FlipMove from "react-flip-move";
+import Widgets from "./Widgets";
 
 function Feed() {
   const user = useSelector(selectUser);
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
   useEffect(() => {
-    onSnapshot(query(collection(db, "posts"), orderBy('timestamp', 'desc')), (snapshot) => {
-      setPosts(snapshot.docs.map((doc) => {
-        return {
-          id: doc.id,
-          data: doc.data()
-        }
-      }))
-    })
+    onSnapshot(
+      query(collection(db, "posts"), orderBy("timestamp", "desc")),
+      (snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => {
+            return {
+              id: doc.id,
+              data: doc.data(),
+            };
+          })
+        );
+      }
+    );
   }, [posts]);
 
   const sendPost = (e) => {
     e.preventDefault();
     addDoc(collection(db, "posts"), {
-        name: user.displayName,
-        description: user.email,
-        message: input,
-        photoURL: user.photoURL || '',
-        timestamp: serverTimestamp(),
-      });
-      setInput("");
+      name: user.displayName,
+      description: user.email,
+      message: input,
+      photoURL: user.photoURL || "",
+      timestamp: serverTimestamp(),
+    });
+    setInput("");
   };
-  
+
   return (
     <div className="feed">
       <div className="feed_inputContainer">
         <div className="feed_inputTop">
-          <Avatar
-            className="feed_avatar"
-            src={user.photoURL || ''}
-          >{user.displayName[0]}</Avatar>
+          <Avatar className="feed_avatar" src={user.photoURL || ""}>
+            {user.displayName[0]}
+          </Avatar>
           <div className="feed_input">
             <CreateIcon />
             <form action="">
@@ -93,6 +98,9 @@ function Feed() {
           />
         ))}
       </FlipMove>
+      <div className="widgets_feed">
+        <Widgets />
+      </div>
     </div>
   );
 }

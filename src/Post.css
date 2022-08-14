@@ -35,3 +35,9 @@
     display: flex;
     justify-content: space-around;
 }
+
+@media (max-width: 470px) {
+    .post {
+        padding-bottom: 0;
+    }
+}

@@ -3,6 +3,7 @@
     border-bottom: 1px solid hsla(0,0%,100%,0.12);
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     padding: 10px 0;
     position: sticky;
     top: 0;
@@ -132,4 +133,43 @@ input[type="text"] {
 
 .profile > span:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .header-search {
+        cursor: pointer;
+    }
+
+    .linkedin_icon {
+        display: none;
+    }
+
+    .header_search > input {
+        display: none !important;
+    }
+}
+
+@media (max-width: 450px) {
+    .profile {
+        padding: 10px;
+        right: 10%;
+    }
+
+    .profile h2 {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    
+    .profile p {
+        font-size: 12px;
+    }
+    
+    .profile > button {
+        font-size: 12px;
+        padding: 5px 85px;
+    }
+
+    .profile span {
+        font-size: 12px;
+    }
 }

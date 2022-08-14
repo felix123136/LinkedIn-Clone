@@ -9,7 +9,24 @@
 .app_body {
     display: flex;
     margin-top: 20px;
-    min-width: 1200px;
     margin-left: 50px;
     margin-right: 50px;
+    width: 100%;
 }
+
+.widgets_body {
+    flex: 0.3;
+}
+
+@media (max-width: 870px) {
+    .widgets_body {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .app_body {
+        flex-direction: column;
+    }
+}
+

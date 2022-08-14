@@ -54,9 +54,27 @@
     justify-content: space-between;
 }
 
-@media (max-width: 1000px) {
+.widgets_feed {
+    display: none;
+}
+
+@media (max-width: 870px) {
     .feed {
-        flex: 1;
-        width: 100%;
+        flex: 0.7;
+    }
+
+    .widgets_feed {
+        display: flex;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .feed_inputContainer {
+        margin-bottom: 10px;
+    }
+
+    .feed_input > form > input {
+        font-size: 11px;
     }
 }

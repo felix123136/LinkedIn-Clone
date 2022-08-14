@@ -2,6 +2,7 @@
     border-radius: 10px;
     flex: 0.2;
     height: fit-content;
+    margin-left: 20px;
     position: sticky;
     text-align: center;
     top: 80px;
@@ -101,4 +102,48 @@
 .sidebar_hash {
     margin-left: 5px;
     margin-right: 10px;
+}
+
+@media (max-width: 1000px) {
+    .sidebar_stat > p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 870px) {
+    .sidebar {
+        flex: 0.3;
+    }
+    .sidebar_stat > p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar_top > h4 {
+        font-size: 10px;
+    }
+
+    .sidebar_top > h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        margin: 0 20px;
+        position: static;
+    }
+
+    .sidebar_top {
+        height: 135px;
+    }
+    
+    .sidebar_top > img {
+        height: 50px;
+    }
+
+    .sidebar_bottom {
+        display: none;
+    }
 }

@@ -2,8 +2,8 @@
     background-color: #1D2226;
     border: 1px solid hsla(0,0%,100%,0.12);
     border-radius: 10px;
-    flex: 0.3;
     height: fit-content;
+    margin-right: 20px;
     padding-bottom: 10px;
     position: sticky;
     top: 80px;
@@ -53,3 +53,8 @@
     color:whitesmoke;
 }
 
+@media (max-width: 870px) {
+    .widgets {
+        margin-right: 0;
+    }
+}
